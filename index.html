@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Access-Control-Allow-Origin" CONTENT="http://www.sharesources.fr">
+    <title>CKEditor 5 Framework – Quick start</title>
+</head>
+
+<div id="editor">
+    <p>Editor content goes here.</p>
+    <figure class="image">
+        <img src="https://via.placeholder.com/1000x300/02c7cd/fff?text=Placeholder%20image" alt="CKEditor 5 rocks!">
+    </figure>
+</div>
+
+<script src="dist/bundle.js"></script>
+<script>
+    ClassicEditor
+        // Note that you don't have to specify the plugin and toolbar configuraiton — using defaults from the build.
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            console.log('Editor was initialized', editor);
+        })
+        .catch(error => {
+            console.error(error.stack);
+        });
+</script>
+
+</html>
