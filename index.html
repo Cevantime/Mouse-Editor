@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Access-Control-Allow-Origin" CONTENT="http://www.sharesources.fr">
+    <meta http-equiv="Access-Control-Allow-Origin" content="http://127.0.0.1/phed/filebrowser/index">
     <title>CKEditor 5 Framework – Quick start</title>
 </head>
 
@@ -14,7 +14,7 @@
     </figure>
 </div>
 
-<script src="dist/bundle.js"></script>
+<script src="dist/mouseeditor.js"></script>
 <script>
     ClassicEditor
         // Note that you don't have to specify the plugin and toolbar configuraiton — using defaults from the build.
@@ -23,7 +23,7 @@
             console.log('Editor was initialized', editor);
         })
         .catch(error => {
-            console.error(error.stack);
+            console.error(error);
         });
 </script>
 

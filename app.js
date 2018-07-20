@@ -6,7 +6,6 @@ import ItalicPlugin from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockquotePlugin from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import HeadingPlugin from '@ckeditor/ckeditor5-heading/src/heading';
 import ImagePlugin from '@ckeditor/ckeditor5-image/src/image';
-import ImagecaptionPlugin from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImagestylePlugin from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImagetoolbarPlugin from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import LinkPlugin from '@ckeditor/ckeditor5-link/src/link';
@@ -25,7 +24,6 @@ ClassicEditor.build = {
         BlockquotePlugin,
         HeadingPlugin,
         ImagePlugin,
-        ImagecaptionPlugin,
         ImagestylePlugin,
         ImagetoolbarPlugin,
         LinkPlugin,

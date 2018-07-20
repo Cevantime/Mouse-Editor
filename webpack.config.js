@@ -12,7 +12,7 @@ module.exports = {
     // https://webpack.js.org/configuration/output/
     output: {
         path: path.resolve( __dirname, 'dist' ),
-        filename: 'bundle.js'
+        filename: 'mouseeditor.js'
     },
 
     module: {
@@ -50,5 +50,6 @@ module.exports = {
     },
 
     // Useful for debugging.
-    devtool: 'source-map'
+    devtool: 'source-map',
+    mode: 'production'
 };
