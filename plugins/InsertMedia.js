@@ -29,17 +29,17 @@ export default class InsertMedia extends Plugin {
           url += '&folder=' + filebrowserConfig.folder;
         }
         const child = window.open(url, "Add media", 'width=720,height=480');
-        const interval = window.setInterval(function () {
-
-          if (child.closed) {
-            ajax.get(filebrowserHost + "/filebrowser/disconnect");
-            clearInterval(interval);
-          }
-        }, 500);
+        const confChild = {};
         
-        window.filebrowser_callback = (data) => {
+        window.addEventListener('message',  (e) => {
           
-          ajax.get(filebrowserHost + "/filebrowser/disconnect");
+          const data = e.data;
+          const origin = e.origin;
+          
+          if(filebrowserHost.indexOf(origin) !== 0){
+            return;
+          }
+//          ajax.get(filebrowserHost + "/filebrowser/disconnect");
 
           editor.model.change(writer => {
             if (data.type.substring(0, 6) === 'image/') {
@@ -54,9 +54,22 @@ export default class InsertMedia extends Plugin {
             }
 
           });
-        };
-        window.filebrowser_model = "filebrowser/file";
-        window.filebrowser_filters = "all";
+        });
+        confChild.filebrowser_model = "filebrowser/file";
+        confChild.filebrowser_filters = "all";
+        
+        child.postMessage(confChild, '*');
+        
+        const interval = window.setInterval(function () {
+
+          if (child.closed) {
+//            ajax.get(filebrowserHost + "/filebrowser/disconnect");
+            clearInterval(interval);
+          } else {
+            child.postMessage(confChild, '*');
+          }
+        }, 500);
+        
         return false;
       });
 
